@@ -49,3 +49,13 @@
     </plugins>
   </build>
 </project>
+<build>
+    <directory>${project.basedir}/deploy</directory> <!-- WAR will go here -->
+    <plugins>
+        <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.4.0</version>
+        </plugin>
+    </plugins>
+</build>
+
