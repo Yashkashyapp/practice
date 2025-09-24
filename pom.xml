@@ -1,12 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>kms-api-examples</groupId>
   <artifactId>kms-api-examples</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>   <!-- 👈 This tells Maven to build a WAR -->
+  <packaging>war</packaging> <!-- 👈 build WAR -->
 
   <dependencies>
     <dependency>
@@ -37,6 +38,9 @@
   </dependencies>
 
   <build>
+    <!-- ✅ Set WAR output directory -->
+    <directory>${project.basedir}/deploy</directory>
+
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -46,16 +50,12 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.4.0</version>
+      </plugin>
     </plugins>
   </build>
 </project>
-<build>
-    <directory>${project.basedir}/deploy</directory> <!-- WAR will go here -->
-    <plugins>
-        <plugin>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.4.0</version>
-        </plugin>
-    </plugins>
-</build>
-
