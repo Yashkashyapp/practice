@@ -1,1 +1,30 @@
-sd
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class SignupApp {
+
+    // Store users in memory (username -> password)
+    private static HashMap<String, String> users = new HashMap<>();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("=== User Signup ===");
+
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+
+        // Check if username already exists
+        if (users.containsKey(username)) {
+            System.out.println("Username already exists. Please choose another.");
+            return;
+        }
+
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        System.out.print("Confirm password: ");
+        String confirmPassword = scanner.nextLine();
+
+        // Check if passwords match
+        if (!password.equals(confirmPassword)) {
+            System.out.println("Passw
